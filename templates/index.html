@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div ng-controller="ChartCtrl">
+  <label for id="location">Location</label>
+  <select id="location" ng-model="geoLocation" ng-change="update()">
+  {% for value, label in locations %}
+    <option value="{{ value }}">{{ label.name }}</option>
+  {% endfor %}
+  </select>
+  <div id="chart_div" style="width: 900px; height: 450px;"></div>
+  <ul>
+    <li ng-repeat="(label, value) in stats">
+      <b>{[{label}]}</b>: {[{value}]}
+    </li>
+  </ul>
+
+</div>
+{% endblock %}
